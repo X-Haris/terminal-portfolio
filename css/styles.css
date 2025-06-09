@@ -1,0 +1,203 @@
+/* ======== CORE STYLES ======== */
+        body {
+            margin: 0;
+            background-color: #000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        #boot-screen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 2;
+            overflow-y: auto;
+        }
+
+        #boot-screen div {
+            color: white;
+            padding-left: 20px;
+        }
+
+        #boot-screen div span.ok {
+            color: #00ff00;
+        }
+
+        #terminal {
+            display: none;
+            height: calc(100vh - 40px);
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        #output {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .input-line {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .prompt {
+            margin-right: 10px;
+            white-space: nowrap;
+            color: #00ff00;
+        }
+
+        .su-prompt {
+            margin-right: 10px;
+            white-space: nowrap;
+            color: #ff0000;
+        }
+
+        .command-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            caret-color: #00ff00;
+            flex-grow: 1;
+        }
+
+        .matrix-success {
+            color: #00ff00;
+            text-shadow: 0 0 5px #0f0;
+        }
+
+        .error {
+            color: #ff0000;
+        }
+
+        #output::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        #output::-webkit-scrollbar-thumb {
+            background: #00ff00;
+        }
+
+        .help-text {
+            margin-bottom: 10px;
+        }
+
+        /* ======== SUPER USER STYLES ======== */
+        .su-active-prompt {
+            color: #b200ff;
+            text-shadow: 0 0 5px #b200ff, 0 0 10px #b200ff;
+        }
+
+        .su-command-output {
+            color: #b200ff;
+            text-shadow: 0 0 3px #b200ff;
+        }
+
+        /* ======== MATRIX THEME ENHANCEMENTS ======== */
+        .matrix-theme {
+            --matrix-green: #00FF00;
+            --matrix-glow: 0 0 5px #00FF00, 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .matrix-theme .prompt {
+            color: var(--matrix-green);
+            text-shadow: var(--matrix-glow);
+        }
+
+        .matrix-theme .command-output {
+            color: var(--matrix-green);
+            text-shadow: var(--matrix-glow);
+        }
+
+        .matrix-theme .error {
+            color: #ff5555;
+            text-shadow: 0 0 3px #ff0000;
+        }
+
+        .matrix-theme .su-active-prompt {
+            color: #d000ff;
+            text-shadow: 0 0 5px #d000ff, 0 0 15px #b200ff;
+        }
+
+        /* ======== ASCII ART STYLES ======== */
+        .ascii-art {
+            color: #00ff00;
+            line-height: 1.3;
+            margin: 10px 0;
+            white-space: pre;
+            font-family: monospace;
+        }
+
+        /* ===== MINIMALISTIC TYPING ANIMATION ===== */
+        .typing-line {
+            border-right: 2px solid #00ff00;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: blinkCursor 0.7s steps(1) infinite;
+        }
+
+        @keyframes blinkCursor {
+            50% { border-right-color: transparent; }
+        }
+
+        /* ======== PROGRESS BAR STYLES ======== */
+        .progress-container {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease;
+            margin: 10px 0;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background-color: #003300;
+            width: 0%;
+            transition: width 0.3s ease;
+            position: relative;
+            border: 1px solid #00ff00;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            line-height: 20px;
+            color: #00ff00;
+            font-size: 12px;
+        }
+
+        .progress-text-final {
+            color: #00ff00 !important;
+            font-weight: bold;
+        }
+        
+        /* ======== COMMAND OUTPUT STYLES ======== */
+        .output-line {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .visible-line {
+            opacity: 1;
+            transform: translateX(0);
+        }
